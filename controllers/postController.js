@@ -3,7 +3,7 @@ const router = express.Router();
 const {User,Post} = require('../models');
 
 router.get("/",(req,res)=>{
-   Post.findAll().then(postData=>{
+   Post.findAll({include:[User]}).then(postData=>{
     res.json(postData)
    }).catch(err=>{
     console.log(err);
@@ -13,9 +13,10 @@ router.get("/",(req,res)=>{
 router.get("/:id",(req,res)=>{
    Post.findByPk(req.params.id,{
     include:[User]
-   }).then(postData=>{
+   }).then((postData)=>{
     res.json(postData)
-   }).catch(err=>{
+    // console.log(postData)
+   }).catch((err)=>{
     console.log(err);
     res.status(500).json({msg:"something went wrong..",err})
    })
@@ -33,6 +34,22 @@ Post.create({
     console.log(err)
     res.status(500).json({msg:"something went wrong.."})
 })
+})
+
+router.delete("/:id", (req,res)=>{
+    if(req.session.userId){
+        return res.status(403).json({msg:"login first"})
+    }
+    Post.destroy({
+        where:{
+            id:req.params.id
+        }
+    }).then(postData=>{
+        res.json(postData)
+    }).catch(err=>{
+        console.log(err);
+        res.status(500).json({msg:"something went wrong", err})
+    })
 })
 
 module.exports = router;

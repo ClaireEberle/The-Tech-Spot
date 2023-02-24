@@ -2,7 +2,13 @@
 <h2>All Posts</h2>
 
 {{#each allPosts}}
-<section class="post-box">
-    <h2>{{User.email}} posted:</h2>
-    <p>{{title}}: {{content}}</p>
+<div class="post-box-box">
+
+<section class="post-box" id="{{id}}">
+    <h2>{{title}} posted {{createdAt}}</h2>
+   
 </section>
+{{/each}}
+
+</div>
+<script src="/js/home.js"></script>

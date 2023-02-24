@@ -6,6 +6,58 @@
 }
 
 header,footer {
-    height: 15vh;
+    height: 30vh;
     background: teal;
+    text-align: right;
+}
+
+#title{
+    border: 0.2rem dashed rgb(26, 47, 37);
+    text-align: center;
+    font-size: 50px;
+    font-weight: 900;
+    
+}
+
+.post-box {
+    border: 0.5rem outset pink;
+    /* outline: 0.5rem solid khaki; */
+    /* box-shadow: 0 0 0 2rem skyblue; */
+    border-radius: 12px;
+    font: bold 1rem sans-serif;
+    margin: 1rem;
+    padding: 1rem;
+    outline-offset: 0.5rem;
+   
+}
+.box{
+    border: 0.3rem outset rgb(111, 37, 49);
+    background: bisque;
+}
+.titlebox{
+    border-bottom: 0.2rem solid rgb(26, 47, 37) ;
+    background: rgb(237, 194, 201);
+    
+}
+
+.button-form{
+background: paleturquoise;
+margin:1rem;
+padding:0.5rem;
+}
+.post-area {
+    border: rgb(111, 37, 49) solid 5px;
+    margin:.5rem;
+}
+
+.title-area {
+    border-bottom:0.1rem solid rgb(26, 47, 37) ;
+}
+
+.hide {
+    display: none;
+}
+
+.post-box:hover{
+    background-color: bisque;
 }

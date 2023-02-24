@@ -1,0 +1,20 @@
+<section class="box">
+    <h3>What's on your mind?</h3>
+<div id="post-form">
+<form>
+    <input type="text" id="add-post-title" placeholder="Post Title">
+<input type="text" id="add-post" placeholder="Post Content">
+<button class="button-form" id="post-btn">Post!</button>
+</form>
+</div>
+<h3>Previous Posts:</h3>
+</section>
+{{#each User.Posts}}
+<div class="post-area">
+    <h3 class="title-area">{{title}}:</h3>
+    <h3>{{content}}</h3>
+</div>
+<button class="button-form">Edit</button>
+<button class="button-form del-btn" id={{id}} >Delete</button>
+    {{/each}}
+<script src="/js/profile.js"></script>
