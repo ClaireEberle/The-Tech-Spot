@@ -12,10 +12,19 @@ router.get("/", (req,res) =>{
     })
 })
 
-router.get("/logout", (req,res)=>{
-    req.session.destroy();
-    res.send("logged out")
-})
+router.delete("/logout", (req,res)=>{
+    if (req.session) {
+        req.session.destroy((err) => {
+          if (err) {
+            res.status(400).json({ msg: "Unable to log out" });
+          } else {
+            res.redirect("/");
+          }
+        });
+      } else {
+        res.end();
+      }
+    });
 
 router.get("/:id", (req,res)=>{
     User.findByPk(req.params.id,{
@@ -52,6 +61,7 @@ router.post("/login",(req,res)=>{
             if(bcrypt.compareSync(req.body.password,userData.password)){  
                 req.session.userId = userData.id;
                 req.session.userEmail = userData.email;
+                req.session.logged_in = true;
                 return res.json(userData)
             }else{
                 return res.status(401).json({msg:"incorrect email or password"})
@@ -71,6 +81,7 @@ router.post("/signup", (req,res)=>{
     }).then ((userData)=>{
         req.session.userId = userData.id;
         req.session.userEmail = userData.email;
+        req.session.logged_in = true;
         res.json(userData);
     }).catch((err)=>{
         console.log(err);

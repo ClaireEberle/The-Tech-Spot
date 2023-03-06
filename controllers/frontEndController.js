@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {User,Post} = require('../models');
+const {User,Post, Comment} = require('../models');
 
 router.get("/", (req,res)=>{
     Post.findAll({
@@ -9,7 +9,8 @@ router.get("/", (req,res)=>{
         
         const hbsPosts = postData.map((posts)=>posts.toJSON());
         res.render("home", {
-            allPosts:hbsPosts
+            allPosts:hbsPosts,
+            logged_in: req.session.logged_in
         })
     })
 })
@@ -30,20 +31,25 @@ router.get("/profile", (req,res)=>{
         const hbsData = userData.toJSON();
         console.log(hbsData)
         res.render("profile", {
-            User:hbsData
+            User:hbsData,
+            logged_in: req.session.logged_in
         })
     })
 })
 
 router.get("/post/:id",(req,res)=>{
     Post.findByPk(req.params.id,{
-     include:[User]
+     include:[{all:true,nested:true}]
     }).then((postData)=>{
      const hbsPosts = postData.toJSON();
     //  console.log(postData)
      console.log(hbsPosts)
      
-   res.render("post", hbsPosts)
+   res.render("post", {
+    ...hbsPosts,
+    logged_in: req.session.logged_in
+    
+    })
     })
  })
  

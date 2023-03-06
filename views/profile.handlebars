@@ -14,7 +14,15 @@
     <h3 class="title-area">{{title}}:</h3>
     <h3>{{content}}</h3>
 </div>
-<button class="button-form">Edit</button>
-<button class="button-form del-btn" id={{id}} >Delete</button>
+<button class="button-form edit-btn" id="{{id}}">Edit</button>
+<div class="hide edit-form" id="edit-form-{{id}}">
+    <form>
+        <input id="title-edit-{{id}}" type="text" value="{{title}}">
+        <textarea id="content-edit-{{id}}" >{{content}}</textarea>
+        <button class="submit-edit" id='{{id}}'>Update Post</button>
+    </form>
+</div>
+    <button class="hide cancel-edit" id="cancel-edit-{{id}}">Cancel</button>
+<button class="button-form del-btn" id='{{id}}' >Delete</button>
     {{/each}}
 <script src="/js/profile.js"></script>

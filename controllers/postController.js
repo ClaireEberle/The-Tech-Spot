@@ -27,7 +27,7 @@ router.post("/", (req,res)=>{
 Post.create({
     title:req.body.title,
     content:req.body.content,
-    UserId:req.body.UserId
+    UserId:req.session.userId
 }).then(postData=>{
     res.json(postData)
 }).catch(err=>{
@@ -36,8 +36,25 @@ Post.create({
 })
 })
 
+router.put("/edit-post", (req,res)=>{
+    if(!req.session.userId){
+        return res.status(403).json({msg:"login before editing a post"});
+     }
+     Post.update(
+        {
+           title:req.body.title,
+           content: req.body.content
+        },
+        {
+           where:{
+              id:req.body.id
+           }
+        }
+     )
+})
+
 router.delete("/:id", (req,res)=>{
-    if(req.session.userId){
+    if(!req.session.userId){
         return res.status(403).json({msg:"login first"})
     }
     Post.destroy({
