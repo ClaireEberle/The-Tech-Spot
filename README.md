@@ -8,7 +8,7 @@ This application was created in order to allow a user to create an account, and 
 
 ## License
     
-![NPM](https://img.shields.io/npm/l/inquirer@8.2.4)
+[![NPM](https://img.shields.io/npm/l/inquirer@8.2.4)](https://img.shields.io/npm/l/express)
     
 ## Table of Contents
    
