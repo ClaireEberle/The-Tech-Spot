@@ -1,14 +1,15 @@
 
 <section class="box">
-    <h3 class="titlebox">{{title}} posted {{createdAt}}</h3>
-
+    <h3 class="titlebox">posted {{createdAt}}</h3>
+<h2>{{title}}:</h2>
     <h2>{{content}}</h2>
 </section>
 
 {{#each Comments}}
-<div>
+<div class="comment-box">
 
-    <p>{{User.email}} says: {{text}}</p>
+    <p>{{User.email}} says:</p>
+    <h4>{{text}}</h4>
     <p>at {{createdAt}}</p>
 </div>
 

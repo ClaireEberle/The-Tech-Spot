@@ -30,7 +30,7 @@ router.get("/profile", (req,res)=>{
         // console.log(userData)
         const hbsData = userData.toJSON();
         console.log(hbsData)
-        res.render("profile", {
+        res.render("dashboard", {
             User:hbsData,
             logged_in: req.session.logged_in
         })
