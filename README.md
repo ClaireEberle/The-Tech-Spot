@@ -1,5 +1,8 @@
 # The-Tech-Spot'# Member-Profile_Generator
     
+https://the-tech-spot-blog.herokuapp.com/
+
+
 This application was created in order to allow a user to create an account, and write tech-related blog posts
 
 ## License
