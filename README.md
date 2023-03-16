@@ -1,4 +1,4 @@
-# The-Tech-Spot'# Member-Profile_Generator
+# The-Tech-Spot
     
 https://the-tech-spot-blog.herokuapp.com/
 
