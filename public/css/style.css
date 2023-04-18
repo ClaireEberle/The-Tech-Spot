@@ -15,6 +15,21 @@ header,footer {
 }
 .nav-bar {
     margin-bottom: 15px;
+   
+    text-decoration: none;
+}
+a {
+    margin-right: 10px;
+    padding: 5px;
+}
+a:link {
+    text-decoration: none;
+}
+a:hover {
+    background-color: brown;
+}
+a:active {
+    background-color: brown;
 }
 
 #title{
