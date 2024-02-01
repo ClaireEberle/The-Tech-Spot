@@ -2,7 +2,8 @@
     
 https://the-tech-spot-blog.herokuapp.com/
 
-<img width="1012" alt="Screenshot 2023-03-06 at 4 11 14 PM" src="https://user-images.githubusercontent.com/116858582/223285525-d6f4ee2d-4ddc-4888-acc0-c8ddcb41da9d.png">
+<img width="821" alt="Screenshot 2024-02-01 at 10 54 03 AM" src="https://github.com/ClaireEberle/The-Tech-Spot/assets/116858582/181fac70-d666-4231-8185-0b4643e97825">
+
 
 This application was created in order to allow a user to create an account, and write tech-related blog posts
 
